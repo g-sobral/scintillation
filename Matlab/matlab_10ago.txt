@@ -1,0 +1,16 @@
+%-- 08/10/2017 09:28:45 PM --%
+cd Documents/
+cd MESTRADO/
+load RXModelAnalysis
+help find
+find(sS4s == 0.9)
+plot(10*log10(R2(:,1017)))
+help pwelch
+plot(10*log10(R2(:,1017)))
+pfreq = pwelch(10*log10(R2(:,1017)))
+plot(pfreq)
+doc pwelch
+pfreq = pwelch(10*log10(R2(:,1017)))
+plot(10*log10(R2(:,1017)))
+figure
+plot(pfreq)
