@@ -38,12 +38,19 @@ lambda
 csi
 
 tmp = besselk((nu-1/2),(q_0*csi))/(2*pi*gamma(nu-1/2));
-R_deltaPhi = (re^2)*(lambda^2)*sec(theta)*G*Cs_L*(abs(csi/(2*q_0))^(2*nu - 1)*tmp;
+R_deltaPhi = @(csi) (re^2)*(lambda^2)*sec(theta)*G*Cs_L*(abs(csi/(2*q_0))^(nu-1/2))*tmp;
 
 Z
 
 F2 = lambda*Z*sec(theta)/(2*pi);
 
-f = 
-g = 
+f = @(csi, k) 2*R_deltaPhi(csi) - R_deltaPhi(csi-k*F2) - R_deltaPhi(csi+k*F2);
+g = @(csi, k) exp(f(csi,k)-f(0,k)) - exp(-f(0,k));
+
+%% I(f)
+k = 2*pi*f/Veff;
+
+auxInt = @(csi) g(csi,k)*cos(csi*k);
+I = 2*integer(auxInt,0,inf);
+
 
