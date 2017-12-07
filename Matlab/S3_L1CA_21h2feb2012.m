@@ -1,4 +1,4 @@
-%M = csvread('20h4Feb2012.txt');
+% M = csvread('20h4Feb2012.txt');
 
 S3_L1CA = M(M(:,2)==3 & M(:,3)==0,:);
 freq = size(S3_L1CA,1)/(S3_L1CA(end,1)-S3_L1CA(1,1));

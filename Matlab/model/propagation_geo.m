@@ -1,14 +1,14 @@
 function [V_eff, G] = propagation_geo(params)
-a = 50;             % scaling factor
-b = 1;              % scaling factor
-theta = ;           % propagation (nadir) angle at the IPP
-phi = ;             % magnetic meridian angle of the propagation vector
-psi = ;             % magnetic inclination angle
-delta = 0;          % irregularities inclination angle from xz plane
-V_px = ;            % IPP velocity component in the magnetic north direction
-V_py = ;            % IPP velocity component in the magnetic east direction
-V_pz = ;            % IPP velocity component in the down direction
-V_D = ;             % zonal irregularity drift velocity [INDEPENDENT]
+a = params.a;           % scaling factor
+b = params.b;           % scaling factor
+theta = params.theta;   % propagation (nadir) angle at the IPP
+phi = params.phi;       % magnetic meridian angle of the propagation vector
+psi = params.psi;       % magnetic inclination angle
+delta = params.delta;   % irregularities inclination angle from xz plane
+V_px = params.V_px;     % IPP velocity component in the magnetic north direction
+V_py = params.V_py;     % IPP velocity component in the magnetic east direction
+V_pz = params.V_pz;     % IPP velocity component in the down direction
+V_D = params.V_D;       % zonal irregularity drift velocity [INDEPENDENT]
 
 %% trigonometric constants
 c_theta = cos(theta);

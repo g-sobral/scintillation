@@ -1,4 +1,4 @@
-%M = csvread('20h4Feb2012.txt');
+% M = csvread('21h2Feb2012.txt');
 
 S3_L1CA = M(M(:,2)==3 & M(:,3)==0,:);
 freq = size(S3_L1CA,1)/(S3_L1CA(end,1)-S3_L1CA(1,1));
@@ -46,8 +46,10 @@ xlabel('Time (s)')
 ylabel('C/N_0 (dB-Hz)')
 title(['Time series of intensity fluctuations S_{4}:' num2str(S4(7))])
 
+% mirror_n_signal1 = [fliplr(n_signal1) n_signal1];
+
 subplot(2,2,2)
-[psd_signal1,f1] = pwelch(n_signal1, 60*50, 60*50/2, [], 50);
+[psd_signal1,f1] = pwelch(n_signal1, 60*50, 60*50/2, [], 50, 'psd');
 semilogx(f1, 10*log10(psd_signal1))
 axis([0 25 -50 20])
 
@@ -59,7 +61,9 @@ xlabel('Time (s)')
 ylabel('C/N_0 (dB-Hz)')
 title(['Time series of intensity fluctuations S_{4}:' num2str(S4(9))])
 
+% mirror_n_signal2 = [fliplr(n_signal2) n_signal2];
+
 subplot(2,2,4)
-[psd_signal2, f2] = pwelch(n_signal2, 60*50, 60*50/2, [], 50);
+[psd_signal2, f2] = pwelch(n_signal2, 60*50, 60*50/2, [], 50, 'psd');
 semilogx(f2, 10*log10(psd_signal2))
 axis([0 25 -50 20])
